@@ -49,7 +49,8 @@ public class SignIn {
                     i++;
                 }
             } catch(FileNotFoundException e) {
-                System.out.println("Error, file not found");
+                System.out.println("User doesn't exist");
+                break;
             }
         }
     }
