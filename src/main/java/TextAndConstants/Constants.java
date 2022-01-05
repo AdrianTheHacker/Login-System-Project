@@ -5,12 +5,14 @@ import java.io.File;
 public class Constants {
     TextFile textFile = new TextFile();
 
-    public String title = "Login System Project";
-    public int numOfFiles = new File("C:\\Users\\adria\\Documents\\LoginSystemProject\\src\\main\\java\\TextFiles").listFiles().length;
-    public String location = loc(numOfFiles);
+    public static String textFilesDirectoryPath = System.getProperty("user.dir") + "/src/main/java/TextFiles/";
 
-    private String loc(int num) {
-        String location = "C:\\Users\\adria\\Documents\\LoginSystemProject\\src\\main\\java\\TextFiles\\" + "User" + numOfFiles + ".txt";
+    public static String title = "Login System Project";
+    public static int numOfFiles = new File(textFilesDirectoryPath).listFiles().length;
+    public static String location = loc(numOfFiles);
+
+    private static String loc(int num) {
+        String location = textFilesDirectoryPath + "User" + numOfFiles + ".txt";
         return location;
     }
 }

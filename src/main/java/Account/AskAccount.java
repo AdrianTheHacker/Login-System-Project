@@ -1,29 +1,26 @@
 package Account;
 
-import TextAndConstants.Constants;
-
 import javax.swing.JOptionPane;
 
-public class AskAccount {
-    static Constants constants = new Constants();
-    static SignIn signIn = new SignIn();
-    static CreateAccount createAccount = new CreateAccount();
+import TextAndConstants.Constants;
 
-    private int createAskBox() {
+public class AskAccount {
+
+    private static int createAskBox() {
         Object[] options = { "Yes", "No" };
 
-        int result = JOptionPane.showOptionDialog(null, "Do you have an account?", constants.title,
+        int result = JOptionPane.showOptionDialog(null, "Do you have an account?", Constants.title,
                 JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,
                 null, options, options[0]);
 
         return result;
     }
 
-    public void signOrCreate() {
+    public static void signOrCreate() {
         if(createAskBox() == 0) { // If user has an account
-            signIn.UserPass();
+            SignIn.UserPass();
         } else { // If user doesn't have an account
-            createAccount.userPass();
+            CreateAccount.userPass();
         }
     }
 }

@@ -5,25 +5,23 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class TextFile {
-    static Constants constants = new Constants();
-
-    public void createFile() {
+    public static void createFile() {
         try {
-            File file = new File(constants.location);
+            File file = new File(Constants.location);
 
             if(file.createNewFile()){
-                System.out.println("Successfully created file " + constants.location);
+                System.out.println("Successfully created file " + Constants.location);
             } else {
-                System.out.println("File " + constants.location + " All ready exists");
+                System.out.println("File " + Constants.location + " All ready exists");
             }
         } catch (IOException e) {
             System.out.println("Error creating file");
         }
     }
 
-    public void addUser(String Username, String Password) {
+    public static void addUser(String Username, String Password) {
         try {
-            FileWriter fileWriter = new FileWriter(constants.location);
+            FileWriter fileWriter = new FileWriter(Constants.location);
 
             fileWriter.write(Username + "\n");
             fileWriter.write(Password + "\n");

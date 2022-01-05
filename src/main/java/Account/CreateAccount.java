@@ -1,25 +1,23 @@
 package Account;
 
-import TextAndConstants.TextFile;
-
 import javax.swing.JOptionPane;
 
-public class CreateAccount {
-    static TextFile textFile = new TextFile();
+import TextAndConstants.TextFile;
 
-    private String getUsername() {
+public class CreateAccount {
+    private static String getUsername() {
         String username = JOptionPane.showInputDialog("Create new username: ");
 
         return username;
     }
 
-    private String getPassword() {
+    private static String getPassword() {
         String password = JOptionPane.showInputDialog("Create new password");
 
         return password;
     }
 
-    public void userPass() {
-        textFile.addUser(getUsername(), getPassword());
+    public static void userPass() {
+        TextFile.addUser(getUsername(), getPassword());
     }
 }

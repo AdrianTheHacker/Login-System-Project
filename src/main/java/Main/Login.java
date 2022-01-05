@@ -1,13 +1,23 @@
 package Main;
 
+import java.io.File;
+
 import Account.AskAccount;
-import Account.SignIn;
+import TextAndConstants.Constants;
 
 public class Login {
-    static SignIn signIn = new SignIn();
-    static AskAccount askAccount = new AskAccount();
 
     public static void main(String[] args) {
-        askAccount.signOrCreate();
+        createTextFilesDirectory();
+        AskAccount.signOrCreate();
+    }
+
+    /**
+     * Create the directory used if not exists (./src/main/java/TextFiles)
+     */
+    private static void createTextFilesDirectory() {
+        File textFilesDirectory = new File(Constants.textFilesDirectoryPath);
+        if (!textFilesDirectory.exists())
+            textFilesDirectory.mkdir();
     }
 }

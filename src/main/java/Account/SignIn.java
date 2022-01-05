@@ -1,42 +1,43 @@
 package Account;
 
-import TextAndConstants.Constants;
-
-import javax.swing.*;
 import java.io.File;
-import java.util.Scanner;
 import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
+import TextAndConstants.Constants;
 
 public class SignIn {
     Constants constants = new Constants();
 
-    private String username = "";
-    private String password = "";
+    private static String username = "";
+    private static String password = "";
 
-    private void getUsername() {
+    private static void getUsername() {
         username += JOptionPane.showInputDialog("Username: ");
     }
 
-    private void getPassword() {
+    private static void getPassword() {
         password += JOptionPane.showInputDialog("Password: ");
     }
 
-    private void checkSignIn() {
+    private static void checkSignIn() {
         getUsername();
         getPassword();
 
 
 
-        for(int i = 1; i <= constants.numOfFiles;) {
+        for(int i = 1; i <= Constants.numOfFiles;) {
             try {
-                File file = new File("C:\\Users\\adria\\Documents\\LoginSystemProject\\src\\main\\java\\TextFiles\\User" + i + ".txt");
+                File file = new File(Constants.textFilesDirectoryPath + "/src/main/java/TextFiles/User" + i + ".txt");
                 Scanner scanner = new Scanner(file);
                 //System.out.println(scanner.nextLine());
                 //System.out.println(i);
 
-                if(this.username.equals(scanner.nextLine())) {
+                if(username.equals(scanner.nextLine())) {
                     System.out.println("User found");
-                    if(this.password.equals(scanner.nextLine())) {
+                    if(password.equals(scanner.nextLine())) {
                         System.out.println("Password is correct");
                         System.out.println("Login successful!");
                         JOptionPane.showMessageDialog(null, "Successfully Logged in User: " + username, "Login Successful!", JOptionPane.INFORMATION_MESSAGE);
@@ -55,7 +56,7 @@ public class SignIn {
         }
     }
 
-    public void UserPass() {
+    public static void UserPass() {
         checkSignIn();
     }
 }
